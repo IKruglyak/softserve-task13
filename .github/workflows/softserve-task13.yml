@@ -1,0 +1,18 @@
+name: Display Name Action
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the code
+      uses: actions/checkout@v2
+
+    - name: Run Ubuntu container
+      run: |
+        docker run --rm ubuntu:latest /bin/bash -c "echo 'Ivan Kruglyak'"
